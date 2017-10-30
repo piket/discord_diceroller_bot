@@ -32,11 +32,11 @@ async def on_ready():
     print('--------------')
 
 @bot.command
-async def help():
+async def help(name=help):
     await bot.say(help_text)
     return
 
-@bot.command
+@bot.command(name=roll)
 async def roll(message : str):
     await bot.say(parse_roll(message))
     return

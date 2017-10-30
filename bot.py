@@ -48,8 +48,8 @@ def parse_roll(message):
         roll_data = make_roll(commands)
         roll_string = format_rolls(roll_data['rolls'], roll_data['base'])
         return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_string)
-    except Exception e:
-        print('Exception:',e)
+    except Exception as e:
+        print('Exception: {0}'.format(e))
         return "There was an error with your command, please refer to !doc and try again."
 
 def format_rolls(rolls, base):

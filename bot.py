@@ -62,11 +62,15 @@ def format_rolls(rolls, base):
         if string != '[':
             string += ', '
         try:
+            print("try to find {0} in {1}".format(r,rolls))
             i = rolls.index(r)
+            print("try to remove {0} from {1}".format(r,rolls))
             del rolls[i]
             string += '{0}'.format(r)
         except ValueError:
+            print("failed to find")
             string += '~~{0}~~'.format(r)
+        print("current state:",string,'rolls:',rolls)
     return string + ']'
 
 def clean_message(msg):

@@ -57,6 +57,7 @@ def parse_roll(message):
 
 def format_rolls(rolls, base):
     string = '['
+    print("formatting over {0} with {1}".format(base,rolls))
     for r in base:
         if string != '[':
             string += ', '

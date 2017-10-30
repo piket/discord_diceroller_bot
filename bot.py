@@ -43,7 +43,8 @@ async def roll(message : str):
 
 def parse_roll(message):
     try:
-        commands = command_parser(clean_message(message[idx + 1:]))
+        print('Message received:',message)
+        commands = command_parser(clean_message(message))
 
         roll_data = make_roll(commands)
         roll_string = format_rolls(roll_data['rolls'], roll_data['base'])

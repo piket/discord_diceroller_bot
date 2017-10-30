@@ -50,7 +50,7 @@ def parse_roll(message):
         print(roll_data)
         if len(roll_data['rolls']) != len(roll_data['base']):
             return "**Total Result: {0}**\nSelected Rolls: {1}\nAll Rolls: {2}".format(roll_data['total'], roll_data['rolls'], roll_data['base'])
-        return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_data['rolls'])
+        return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_data['base'])
     except Exception as e:
         print('Exception: {0}'.format(e))
         return "There was an error with your command, please refer to !doc and try again."

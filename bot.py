@@ -32,7 +32,7 @@ async def on_ready():
     print('--------------')
 
 @bot.command()
-async def help():
+async def doc():
     await bot.say(help_text)
     return
 
@@ -49,7 +49,7 @@ def parse_roll(message):
         roll_string = format_rolls(roll_data['rolls'], roll_data['base'])
         return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_string)
     except Exception:
-        "There was an error with your command, please refer to !help and try again."
+        "There was an error with your command, please refer to !doc and try again."
 
 def format_rolls(rolls, base):
     string = '['

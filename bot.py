@@ -31,12 +31,12 @@ async def on_ready():
     print(bot.user.id)
     print('--------------')
 
-@bot.command
-async def help(name=help):
+@bot.command()
+async def help():
     await bot.say(help_text)
     return
 
-@bot.command(name=roll)
+@bot.command()
 async def roll(message : str):
     await bot.say(parse_roll(message))
     return

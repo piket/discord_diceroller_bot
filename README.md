@@ -1,0 +1,1 @@
+A dice roller bot for discord that can handle complex roll commands needed for many Pen & Paper RPGs.

@@ -48,30 +48,12 @@ def parse_roll(message):
 
         roll_data = make_roll(commands)
         print(roll_data)
-        roll_string = format_rolls(roll_data['rolls'], roll_data['base'])
-        print(roll_string)
-        return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_string)
+        if len(roll_data['rolls']) != len(roll_data['base']):
+            return "**Total Result: {0}**\nSelected Rolls: {1}\nAll Rolls: {2}".format(roll_data['total'], roll_data['rolls'], roll_data['base'])
+        return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_data['rolls'])
     except Exception as e:
         print('Exception: {0}'.format(e))
         return "There was an error with your command, please refer to !doc and try again."
-
-def format_rolls(rolls, base):
-    string = '['
-    print("formatting over {0} with {1}".format(base,rolls))
-    for r in base:
-        if string != '[':
-            string += ', '
-        try:
-            print("try to find {0} in {1}".format(r,rolls))
-            i = rolls.index(r)
-            print("try to remove {0} from {1}".format(r,rolls))
-            del rolls[i]
-            string += '{0}'.format(r)
-        except ValueError:
-            print("failed to find")
-            string += '~~{0}~~'.format(r)
-        print("current state:",string,'rolls:',rolls)
-    return string + ']'
 
 def clean_message(msg):
     '''

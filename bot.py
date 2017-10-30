@@ -1,7 +1,7 @@
 # By Timon Pike
 # Discord bot for rolling dice for a variety of RPG systems
 
-import discord
+import discord, os
 from discord.ext import commands
 import re
 from diceroller import *
@@ -110,4 +110,4 @@ def make_roll(match):
         return {'total': total, 'rolls': rolls + mod_dict['rolls'], 'base': base_rolls + mod_dict['base']}
     return {'total': total_rolls(rolls), 'rolls': rolls, 'base': base_rolls}
 
-bot.run('DICEROLLER_BOT_TOKEN')
+bot.run(os.environ.get('DICEROLLER_BOT_TOKEN'))

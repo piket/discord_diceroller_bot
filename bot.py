@@ -47,7 +47,9 @@ def parse_roll(message):
         commands = command_parser(clean_message(message))
 
         roll_data = make_roll(commands)
+        print(roll_data)
         roll_string = format_rolls(roll_data['rolls'], roll_data['base'])
+        print(roll_string)
         return "**Total Result: {0}**\nRolls: {1}".format(roll_data['total'], roll_string)
     except Exception as e:
         print('Exception: {0}'.format(e))
@@ -61,7 +63,7 @@ def format_rolls(rolls, base):
         try:
             i = rolls.index(r)
             rolls.remove(i)
-            string += str(r)
+            string += '{0}'.format(r)
         except ValueError:
             string += '~~{0}~~'.format(r)
     return string + ']'
@@ -109,7 +111,6 @@ def make_roll(match):
     modifier = match.group('modifier')
 
     rolls, base_rolls = roll_with_options(x, a, success, s_target, explode, e_target, e_num, keep, k_num, keep_higher, drop, d_num, drop_highest)
-    print('rolls:',rolls,'\bbase:',base_rolls)
     if(modifier != None):
         add = modifier[0] == '+'
         if(re.match('^[-+][0-9]+$', modifier)):

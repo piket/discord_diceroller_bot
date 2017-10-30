@@ -60,7 +60,7 @@ def format_rolls(rolls, base):
             string += ', '
         try:
             i = rolls.index(r)
-            rolls.remove(r)
+            rolls.remove(i)
             string += str(r)
         except ValueError:
             string += '~~{0}~~'.format(r)
